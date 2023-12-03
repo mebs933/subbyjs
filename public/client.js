@@ -22,9 +22,8 @@ async function openMicrophone(microphone, socket) {
   };
 
   microphone.ondataavailable = (e) => {
-    const data = e.data;
     console.log("client: sent data to websocket");
-    socket.send(data);
+    socket.emit("packet-sent", e.data);
   };
 }
 
@@ -50,41 +49,15 @@ async function start(socket) {
   });
 }
 
-async function getTempApiKey() {
-  const result = await fetch("/key");
-  const json = await result.json();
+window.addEventListener("load", () => {
+  const socket = io((options = { transports: ["websocket"] }));
 
-  return json.key;
-}
-
-window.addEventListener("load", async () => {
-  const key = await getTempApiKey();
-
-  const { createClient } = deepgram;
-  const _deepgram = createClient(key);
-
-  const socket = _deepgram.listen.live({ model: "nova", smart_format: true });
-
-  socket.on("open", async () => {
+  socket.on("connect", async () => {
     console.log("client: connected to websocket");
-
-    socket.on("Results", (data) => {
-      console.log(data);
-
-      const transcript = data.channel.alternatives[0].transcript;
-
-      if (transcript !== "")
-        captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
-    });
-
-    socket.on("error", (e) => console.error(e));
-
-    socket.on("warning", (e) => console.warn(e));
-
-    socket.on("Metadata", (e) => console.log(e));
-
-    socket.on("close", (e) => console.log(e));
-
     await start(socket);
+  });
+
+  socket.on("transcript", (transcript) => {
+    captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
   });
 });

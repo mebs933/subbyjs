@@ -1,6 +1,4 @@
-# Deepgram Live Transcriptions Example (JavaScript)
-
-ALPHA
+# Deepgram Live Transcriptions Example
 
 This is a basic express server that shows the basic setup for live audio transcriptions using Deepgram.
 
@@ -28,7 +26,7 @@ Run the following commands to install the dependencies and run the application
 
 ```
 npm i
-npm run dev
+npm run start
 ```
 
 ## Accessing the running application in your browser
@@ -40,8 +38,3 @@ http://localhost:3000/
 ```
 
 Click on the button when you're ready to transcribe.
-# subby-react-live
-# subby-react-live
-# subby-react-live
-# subby-react-live
-# subbyjs

@@ -1,0 +1,10 @@
+prepare:
+  steps:
+    - name: Initalise
+      command: npm i
+test:
+  steps: []
+run:
+  steps:
+    - name: Start
+      command: npm run start
