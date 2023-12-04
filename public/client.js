@@ -1,3 +1,5 @@
+//subbyjs/public/client.js
+
 const captions = window.document.getElementById("captions");
 
 async function getMicrophone() {
