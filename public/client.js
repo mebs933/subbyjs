@@ -60,6 +60,14 @@ window.addEventListener("load", () => {
   });
 
   socket.on("transcript", (transcript) => {
-    captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
+    // Append new transcript data instead of replacing it
+    if (transcript) {
+      let newLine = document.createElement('div');
+      newLine.textContent = transcript;
+      captions.appendChild(newLine);
+    }
+
+    // Scroll to the bottom to show the latest transcript
+    captions.scrollTop = captions.scrollHeight;
   });
 });
