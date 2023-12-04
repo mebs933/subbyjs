@@ -3,18 +3,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Deepgram Test</title>
-    <script
-      src="https://cdn.socket.io/4.5.3/socket.io.min.js"
-      integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
+      <meta charset="utf-8" />
+      <title>Subby - Peek into conversation</title>
+      <script
+        src="https://cdn.socket.io/4.5.3/socket.io.min.js"
+        integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
+        crossorigin="anonymous"
+      ></script>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <!-- Rubik font from Google Fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css" />
   </head>
 
   <body class="">
@@ -45,8 +47,9 @@
         </div>
       </div>
     </div>
-    <div class="captions" id="captions">
-      <span>Captions by Deepgram</span>
+    <div class="transcript-box" id="transcript-box">
+      <span id="placeholder">Subby - Peak into conversation</span>
+      <!-- Transcripts will be appended here -->
     </div>
 
     <script src="client.js"></script>

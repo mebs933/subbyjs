@@ -5,7 +5,7 @@ body {
 .box {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 50%;                                                                    
 }
 
 .object {
@@ -93,22 +93,31 @@ body {
   margin: 21px;
 }
 
-.captions {
-  font: 3.2rem/1.25 Verdana, Geneva, Tahoma, sans-serif;
-  /* font-family: ; */
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 400;
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translate(-50%, 0);
+.transcript-box {
+  font-family: 'Rubik', sans-serif; /* Use the Rubik font */
+  font-size: 3.2rem; /* Adjust font size as needed */
+  font-weight: 400; /* Regular font weight */
+  text-transform: uppercase; /* Uppercase text */
+  text-align: center; /* Centered text */
+  position: absolute; /* Positioned absolutely */
+  bottom: 10px; /* Distance from the bottom of the screen */
+  left: 10px; /* Distance from the left side of the screen */
+  max-height: 300px; /* Maximum height of the box */
+  width: calc(100% - 20px); /* Full width minus padding */
+  overflow-y: auto; /* Allow scrolling */
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism style background */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Border for the background */
+  backdrop-filter: blur(5px); /* Blur effect for the background */
+  padding: 10px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 100; /* Ensure it overlays other elements */
+  scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-.captions span {
-  display: inline-block;
-  line-height: 4rem;
-  padding: 1rem;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.3);
+.transcript-box span {
+  display: block; /* Display as block to take full width */
+  line-height: 1.25; /* Adjust line height as needed */
+  padding: 1rem; /* Padding for each transcript line */
+  color: white; /* Color of the text */
+  background-color: rgba(0, 0, 0, 0.3); /* Background color with transparency */
 }
