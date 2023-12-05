@@ -21,8 +21,9 @@ body {
 
 .box {
   position: absolute;
-  top: 50%;
-  left: 50%;                                                                    
+  bottom: 20px; /* Verplaats de box naar de onderkant van het scherm met 20px padding */
+  left: 50%;
+  z-index: 101; /* Verhoog de z-index zodat de box boven de .transcript-box div wordt weergegeven */
 }
 
 .object {
