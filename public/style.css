@@ -21,8 +21,9 @@ body {
 
 .box {
   position: absolute;
-  bottom: 20px; /* Verplaats de box naar de onderkant van het scherm met 20px padding */
+  bottom: 5%; /* Verplaats de box naar de onderkant van het scherm met 5% padding */
   left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 101; /* Verhoog de z-index zodat de box boven de .transcript-box div wordt weergegeven */
 }
 
@@ -144,9 +145,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-height: 66vh;
+  height: 50vh; /* Stel de hoogte in op 50% van de viewport hoogte */
   width: calc(100% - 40px);
-  overflow-y: auto;
+  overflow-y: auto; /* Zorg ervoor dat de inhoud naar boven scrolt wanneer er meer tekst wordt toegevoegd */
   background: rgba(255, 255, 255, 0.2); /* Adjust background opacity for glass effect */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border for glass effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), /* Outer shadow for depth */
