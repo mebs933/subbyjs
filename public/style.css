@@ -1,5 +1,28 @@
-body {
-  background: #4e4e4e;
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* Optional: prevents scrollbars if the content is larger than the viewport */
+}
+
+body::before {
+  content: '';
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('images/background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(4px); /* Apply the blur effect */
+  z-index: -1; /* Sit behind the content */
+}
+
+/* Add this to style the content that sits on top of the blurred background */
+.content {
+  position: relative;
+  z-index: 1;
 }
 
 .box {
