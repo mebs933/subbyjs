@@ -1,5 +1,3 @@
-//subbyjs/public/client.js
-
 const captions = window.document.getElementById("captions");
 
 async function getMicrophone() {
@@ -60,22 +58,7 @@ window.addEventListener("load", () => {
   });
 
   socket.on("transcript", (transcript) => {
-    const transcriptBox = document.getElementById('transcript-box');
-    const placeholder = document.getElementById('placeholder');
-  
-    if (transcript) {
-      // If the placeholder exists, remove or hide it
-      if (placeholder) {
-        placeholder.style.display = 'none'; // This hides the placeholder
-        // placeholder.remove(); // Alternatively, this completely removes the placeholder
-      }
-      
-      let newLine = document.createElement('div');
-      newLine.textContent = transcript;
-      transcriptBox.appendChild(newLine);
-  
-      // Scroll to the bottom to show the latest transcript
-      transcriptBox.scrollTop = transcriptBox.scrollHeight;
-    }
+    if (transcript !== "")
+      captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
   });
-}); 
+});
