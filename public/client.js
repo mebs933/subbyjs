@@ -1,4 +1,5 @@
 const captions = window.document.getElementById("captions");
+const text = window.document.getElementById("text");
 
 async function getMicrophone() {
   const userMedia = await navigator.mediaDevices.getUserMedia({
@@ -58,7 +59,12 @@ window.addEventListener("load", () => {
   });
 
   socket.on("transcript", (transcript) => {
-    if (transcript !== "")
-      captions.innerHTML = transcript ? `<span>${transcript}</span>` : "";
+    if (transcript !== "") {
+      // Voeg de nieuwe tekst toe aan het begin van de bestaande tekst
+      text.innerHTML = `<span>${transcript}</span><br>` + text.innerHTML;
+      
+      // Scroll naar de bovenkant van de div
+      captions.scrollTop = 0;
+    }
   });
 });
