@@ -15,6 +15,7 @@ async function openMicrophone(microphone, socket) {
   microphone.onstart = () => {
     console.log("client: microphone opened");
     document.body.classList.add("recording");
+    text.innerHTML = ""; // Verwijder de placeholder tekst zodra de transcriptie start
   };
 
   microphone.onstop = () => {
@@ -60,11 +61,11 @@ window.addEventListener("load", () => {
 
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
-      // Voeg de nieuwe tekst toe aan het begin van de bestaande tekst
-      text.innerHTML = `<span>${transcript}</span><br>` + text.innerHTML;
+      // Voeg de nieuwe tekst toe aan het einde van de bestaande tekst
+      text.innerHTML = text.innerHTML + `<span>${transcript}</span><br>`;
       
-      // Scroll naar de bovenkant van de div
-      captions.scrollTop = 0;
+      // Scroll naar de onderkant van de div
+      captions.scrollTop = captions.scrollHeight;
     }
   });
 });
