@@ -122,10 +122,11 @@ body::before {
   text-align: center;
   font-weight: 400;
   position: absolute;
-  bottom: 1rem;
+  top: 1rem;
   left: 50%;
   transform: translate(-50%, 0);
-  height:200px;
+  height:min(400px, 100%);
+  width: min(1200px, 100%);
   overflow:auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
