@@ -28,7 +28,7 @@ body::before {
 
 .box {
   position: absolute;
-  top: 50%;
+  top: 90%;
   left: 50%;
 }
 
