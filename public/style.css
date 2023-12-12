@@ -27,17 +27,22 @@ body::before {
 }
 
 .box {
-  position: absolute;
-  top: 90%;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .box {
+    flex-direction: column;
+  }
 }
 
 .object {
   display: flex;
-  flex: 0 1 100%;
   justify-content: center;
   align-items: center;
-  align-content: stretch;
 }
 
 .outline {
