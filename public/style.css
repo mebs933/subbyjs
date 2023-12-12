@@ -38,8 +38,9 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  margin-bottom: 5vh; /* Veranderd van 10vh naar 5vh */
+  margin-bottom: 10vh;
 }
+
 .object {
   display: flex;
   flex-direction: column;
@@ -68,8 +69,6 @@ body::before {
   border-radius: 50%;
   background: #50cddd;
   box-shadow: 0px 0px 8vw #0084f9;
-  justify-content: center; /* Nieuwe regel toegevoegd */
-  align-items: center; /* Nieuwe regel toegevoegd */
 }
 
 .recording .button {
