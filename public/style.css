@@ -38,9 +38,8 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  margin-bottom: 5vh;
+  margin-bottom: 5vh; /* Veranderd van 10vh naar 5vh */
 }
-
 .object {
   display: flex;
   flex-direction: column;
@@ -67,18 +66,13 @@ body::before {
   width: 10vw;
   height: 10vw;
   border-radius: 50%;
-  background: #7150dd;
-  box-shadow: 0px 0px 8vw #3a00f9;
-  justify-content: center;
-  align-items: center;
+  background: #50cddd;
+  box-shadow: 0px 0px 8vw #0084f9;
+  justify-content: center; /* Nieuwe regel toegevoegd */
+  align-items: center; /* Nieuwe regel toegevoegd */
 }
 
 .recording .button {
-  width: 10vw;
-  height: 10vw;
-  border-radius: 50%;
-  justify-content: center;
-  align-items: center;
   background: #dd5050;
   box-shadow: 0px 0px 8vw #f90000;
 }
@@ -131,9 +125,7 @@ body::before {
 }
 
 .captions {
-  font-size: 3vw; /* Veranderd van 3.2rem naar 3vw */
-  line-height: 1.25em; /* Veranderd van 1.25 'Rubik', sans-serif naar 1.25em */
-  font-family: 'Rubik', sans-serif;
+  font: 3.2rem/1.25 'Rubik', sans-serif;
   text-align: center;
   font-weight: 400;
   position: relative;
@@ -149,7 +141,7 @@ body::before {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   color: white;
-  padding-top: 3vh; /* Veranderd van 1rem naar 3vh */
+  padding-top: 1rem;
   margin-top: 10vh;
 }
 
