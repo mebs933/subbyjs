@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
       // Voeg de nieuwe tekst toe aan het einde van de bestaande tekst
-      text.innerHTML = text.innerHTML + `<span>${transcript}</span>`;
+      text.innerHTML = text.innerHTML + `<span>${transcript}</span><br>`;
       
       // Scroll naar de onderkant van de div
       captions.scrollTop = captions.scrollHeight;
