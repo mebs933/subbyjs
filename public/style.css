@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
-
 body, html {
   margin: 0;
   height: 100%;
   overflow: hidden;
 }
-
 body::before {
   content: '';
   position: fixed;
@@ -20,19 +18,16 @@ body::before {
   filter: blur(4px);
   z-index: -1;
 }
-
 .content {
   position: relative;
   z-index: 1;
 }
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
 }
-
 .box {
   display: flex;
   justify-content: center;
@@ -47,7 +42,6 @@ body::before {
   justify-content: center;
   align-items: center;
 }
-
 .outline {
   display: none;
   position: absolute;
@@ -71,40 +65,7 @@ body::before {
   border-radius: 50%;
   background: #50cddd;
   box-shadow: 0px 0px 8vw #0084f9;
-  position: relative;
-  z-index: 2;
-}
-
-.recording .button {
-  background: #dd5050;
-  box-shadow: 0px 0px 8vw #f90000;
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-    border: 6.5vw solid #000000;
-  }
-  50% {
-    border: solid #ffffff;
-    opacity: 0.8;
-  }
-  90% {
-    transform: scale(3.2);
-    opacity: 0.2;
-    border: 0.3vw solid #000000;
-  }
-  100% {
-    transform: scale(3.3);
-    opacity: 0;
-    border: 0.1vw solid #ffffff;
-  }
-}
-
-
-#delayed {
-  animation-delay: 1.5s;
+@@ -108,13 +108,16 @@ body::before {
 }
 
 #circlein {
@@ -126,35 +87,11 @@ body::before {
 }
 
 .soundwave-icon {
-  height: 4vw;
-  position: relative;
+  height: 4vw; /* Reduced to shrink the button */
+  position: absolute;
+  /* margin: 2.1vw; Removed to center the soundwave icon */
   z-index: 4;
 }
-
-.soundwave-icon::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #0000ff, transparent);
-  animation: glow 2s infinite;
-}
-
-@keyframes glow {
-  0% {
-    background: radial-gradient(circle, #0000ff, transparent);
-  }
-  50% {
-    background: radial-gradient(circle, #ffffff, transparent);
-  }
-  100% {
-    background: radial-gradient(circle, #0000ff, transparent);
-  }
-}
-
-
 
 .captions {
   font: 3.2rem/1.25 'Rubik', sans-serif;
