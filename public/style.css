@@ -90,7 +90,6 @@ body::before {
     border: solid #ffffff;
     opacity: 0.8;
   }
-
   90% {
     transform: scale(3.2);
     opacity: 0.2;
@@ -102,6 +101,19 @@ body::before {
     border: 0.1vw solid #ffffff;
   }
 }
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de;
+  }
+  50% {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de;
+  }
+  100% {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de;
+  }
+}
+
 
 #delayed {
   animation-delay: 1.5s;
@@ -126,10 +138,12 @@ body::before {
 }
 
 .soundwave-icon {
-  height: 4vw; /* Reduced to shrink the button */
+  height: 4vw;
   position: absolute;
-  /* margin: 2.1vw; Removed to center the soundwave icon */
   z-index: 4;
+  filter: brightness(0) invert(1); /* Make the icon white */
+  animation: glow 2s infinite; /* Add a moving glow */
+  backdrop-filter: brightness(150%) contrast(150%) grayscale(100%); /* Add grain */
 }
 
 .captions {
