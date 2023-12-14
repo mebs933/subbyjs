@@ -127,24 +127,33 @@ body::before {
 
 .soundwave-icon {
   height: 4vw;
-  position: absolute;
+  position: relative;
   z-index: 4;
-  animation: glow 2s infinite; /* Add a subtle moving glow */
-  /* backdrop-filter: brightness(150%) contrast(150%) grayscale(100%); Remove this line */
 }
 
+.soundwave-icon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #0000ff, transparent);
+  animation: glow 2s infinite;
+}
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px #000080, 0 0 10px #000080, 0 0 15px #000080, 0 0 20px #000080;
+    background: radial-gradient(circle, #0000ff, transparent);
   }
   50% {
-    box-shadow: 0 0 10px #000080, 0 0 20px #000080, 0 0 30px #000080, 0 0 40px #000080;
+    background: radial-gradient(circle, #ffffff, transparent);
   }
   100% {
-    box-shadow: 0 0 5px #000080, 0 0 10px #000080, 0 0 15px #000080, 0 0 20px #000080;
+    background: radial-gradient(circle, #0000ff, transparent);
   }
 }
+
 
 
 .captions {
