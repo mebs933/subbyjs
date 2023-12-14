@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 body, html {
   margin: 0;
   height: 100%;
   overflow: hidden;
 }
+
 body::before {
   content: '';
   position: fixed;
@@ -18,22 +20,25 @@ body::before {
   filter: blur(4px);
   z-index: -1;
 }
+
 .content {
   position: relative;
   z-index: 1;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
 }
+
 .box {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  margin-bottom: 5vh; /* Reduced to move button down */
+  margin-bottom: 10vh;
 }
 
 .object {
@@ -42,6 +47,7 @@ body::before {
   justify-content: center;
   align-items: center;
 }
+
 .outline {
   display: none;
   position: absolute;
@@ -50,8 +56,8 @@ body::before {
 
 .recording .outline {
   display: block;
-  width: 4vw; /* Reduced to shrink the button */
-  height: 4vw; /* Reduced to shrink the button */
+  width: 5vw;
+  height: 5vw;
   border-radius: 50%;
   border: 0.8vw solid #b5a4a4;
   animation: pulse 3s;
@@ -60,25 +66,55 @@ body::before {
 }
 
 .button {
-  width: 8vw; /* Reduced to shrink the button */
-  height: 8vw; /* Reduced to shrink the button */
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   background: #50cddd;
   box-shadow: 0px 0px 8vw #0084f9;
-@@ -108,13 +108,16 @@ body::before {
+  position: relative;
+  z-index: 2;
+}
+
+.recording .button {
+  background: #dd5050;
+  box-shadow: 0px 0px 8vw #f90000;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+    border: 6.5vw solid #000000;
+  }
+  50% {
+    border: solid #ffffff;
+    opacity: 0.8;
+  }
+
+  90% {
+    transform: scale(3.2);
+    opacity: 0.2;
+    border: 0.3vw solid #000000;
+  }
+  100% {
+    transform: scale(3.3);
+    opacity: 0;
+    border: 0.1vw solid #ffffff;
+  }
+}
+
+#delayed {
+  animation-delay: 1.5s;
 }
 
 #circlein {
-  width: 6vw; /* Reduced to shrink the button */
-  height: 6vw; /* Reduced to shrink the button */
+  width: 8vw;
+  height: 8vw;
   border-radius: 50%;
   background: #6bd6e1;
   box-shadow: 0px -0.2vw 1.5vw #e0ff94;
   position: absolute;
   z-index: 3;
-  display: flex; /* Added to center the soundwave icon */
-  justify-content: center; /* Added to center the soundwave icon */
-  align-items: center; /* Added to center the soundwave icon */
 }
 
 .recording #circlein {
@@ -87,9 +123,9 @@ body::before {
 }
 
 .soundwave-icon {
-  height: 4vw; /* Reduced to shrink the button */
+  height: 5vw;
   position: absolute;
-  /* margin: 2.1vw; Removed to center the soundwave icon */
+  margin: 2.1vw;
   z-index: 4;
 }
 
@@ -101,7 +137,7 @@ body::before {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  height: 70vh; /* Increased to expand the height of card/transcript */
+  height: 50vh;
   width: 80vw;
   overflow:auto;
   background: rgba(255, 255, 255, 0.1);
@@ -111,7 +147,7 @@ body::before {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   color: white;
   padding-top: 1rem;
-  margin-top: 5vh; /* Reduced to move button down */
+  margin-top: 10vh;
 }
 
 .captions span {
