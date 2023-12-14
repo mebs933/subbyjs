@@ -125,6 +125,15 @@ body::before {
   box-shadow: 0px -0.2vw 1.5vw #e0ff94;
 }
 
+.soundwave-icon {
+  height: 4vw;
+  position: absolute;
+  z-index: 4;
+  filter: brightness(0) invert(1) sepia(1) saturate(2.5) hue-rotate(200deg); /* Make the icon dark blue */
+  animation: glow 2s infinite; /* Add a subtle moving glow */
+  backdrop-filter: brightness(150%) contrast(150%) grayscale(100%); /* Add grain */
+}
+
 @keyframes glow {
   0% {
     box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff;
@@ -136,15 +145,6 @@ body::before {
     box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff;
   }
 }
-.soundwave-icon {
-  height: 4vw;
-  position: absolute;
-  z-index: 4;
-  filter: brightness(0) invert(1) sepia(1) saturate(2.5) hue-rotate(200deg); /* Make the icon dark blue */
-  animation: glow 2s infinite; /* Add a subtle moving glow */
-  backdrop-filter: brightness(50%) contrast(150%) grayscale(100%); /* Add grain */
-}
-
 
 
 
