@@ -50,7 +50,8 @@ body::before {
 
 .outline {
   display: none;
-  z-index: 0; /* Add this line */
+  position: absolute;
+  z-index: 1;
 }
 
 .recording .outline {
@@ -70,7 +71,8 @@ body::before {
   border-radius: 50%;
   background: #50cddd;
   box-shadow: 0px 0px 8vw #0084f9;
-  z-index: 1; /* Add this line */
+  position: relative;
+  z-index: 2;
 }
 
 .recording .button {
@@ -112,6 +114,7 @@ body::before {
   background: #6bd6e1;
   box-shadow: 0px -0.2vw 1.5vw #e0ff94;
   position: absolute;
+  z-index: 3;
 }
 
 .recording #circlein {
@@ -123,6 +126,7 @@ body::before {
   height: 5vw;
   position: absolute;
   margin: 2.1vw;
+  z-index: 4;
 }
 
 .captions {
@@ -144,7 +148,6 @@ body::before {
   color: white;
   padding-top: 1rem;
   margin-top: 10vh;
-  z-index: 2; /* Add this line */
 }
 
 .captions span {
