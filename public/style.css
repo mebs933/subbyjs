@@ -130,8 +130,9 @@ body::before {
   position: absolute;
   z-index: 4;
   animation: glow 2s infinite; /* Add a subtle moving glow */
-  backdrop-filter: brightness(150%) contrast(150%) grayscale(100%); /* Add grain */
+  /* backdrop-filter: brightness(150%) contrast(150%) grayscale(100%); Remove this line */
 }
+
 
 @keyframes glow {
   0% {
