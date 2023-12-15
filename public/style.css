@@ -167,37 +167,40 @@ body::before {
   height: 100%;
   display: flex;
   align-items: center;
+  z-index: 5; /* Adjust as needed */
 }
 
 .slider {
-  width: 20vw; /* Adjust as needed */
-  height: 1vw; /* Adjust as needed */
-  -webkit-appearance: none;
   appearance: none;
-  background: #d3d3d3;
+  -webkit-appearance: none;
+  width: 1vw; /* Adjust as needed */
+  height: 50vh; /* Adjust as needed */
+  background: transparent;
   outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
   transform: rotate(270deg);
 }
 
-.slider:hover {
-  opacity: 1;
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.6vw;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1vw;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
   appearance: none;
-  width: 2.5vw; /* Adjust as needed */
-  height: 2.5vw; /* Adjust as needed */
+  -webkit-appearance: none;
+  height: 2vw;
+  width: 2vw;
+  border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 2.5vw; /* Adjust as needed */
-  height: 2.5vw; /* Adjust as needed */
-  background: #4CAF50;
-  cursor: pointer;
+  margin-top: -0.7vw;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
