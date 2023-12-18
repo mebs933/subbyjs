@@ -171,16 +171,6 @@ body::before {
   margin-right: 1vw; /* Add right margin */
 }
 
-.slider-container {
-  position: absolute;
-  right: 1vw; /* Adjust as needed */
-  top: 25vh; /* Adjust as needed */
-  display: flex;
-  align-items: center;
-  z-index: 5; /* Adjust as needed */
-  margin-right: 1vw; /* Add right margin */
-}
-
 .slider {
   appearance: none;
   -webkit-appearance: none;
