@@ -163,7 +163,7 @@ body::before {
 
 .slider-container {
   position: absolute;
-  right: 1vw; /* Adjust as needed */
+  right: 5vw; /* Adjust as needed */
   top: 25vh; /* Adjust as needed */
   display: flex;
   align-items: center;
