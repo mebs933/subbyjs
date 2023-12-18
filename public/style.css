@@ -162,7 +162,8 @@ body::before {
 }
 
 .slider {
-  -webkit-appearance: none;
+  appearance: none; /* Standard property for all browsers */
+  -webkit-appearance: none; /* Vendor-prefixed property for older versions of Safari/Chrome/Edge */
   width: 1vw; /* Width of the slider */
   height: 50vh; /* Height of the slider, adjust as necessary */
   background: transparent;
