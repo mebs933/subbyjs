@@ -162,36 +162,17 @@ body::before {
 }
 
 .slider {
-  appearance: none; /* Standard property for all browsers */
-  -webkit-appearance: none; /* Vendor-prefixed property for older versions of Safari/Chrome/Edge */
-  width: 1vw; /* Width of the slider */
-  height: 50vh; /* Height of the slider, adjust as necessary */
-  background: transparent;
-  outline: none;
-  writing-mode: bt-lr; /* This makes the slider vertical */
-  transform: rotate(270deg); /* Standard method to rotate the slider */
-}
-
-.slider {
   appearance: none;
   -webkit-appearance: none;
-  width: 1vw; /* Adjust as needed */
-  height: 50vh; /* Adjust as needed */
+  width: 1vw;
+  height: 50vh;
   background: transparent;
   outline: none;
+  writing-mode: bt-lr;
+  transform: rotate(270deg);
 }
 
-.slider::-webkit-slider-runnable-track {
-  width: 0.6vw;
-  height: 100%;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1vw;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
+/* For WebKit (Chrome, Safari, newer versions of Opera): */
 .slider::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
@@ -203,4 +184,22 @@ body::before {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* For Mozilla Firefox: */
+.slider::-moz-range-thumb {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+/* For Internet Explorer */
+.slider::-ms-thumb {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
 }

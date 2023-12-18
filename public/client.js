@@ -61,8 +61,12 @@ window.addEventListener("load", () => {
 
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
-      // Replace the innerHTML of the text element if you don't want to keep the initial text
-      text.innerHTML = `<span>${transcript}</span><br>`;
+      // First clear the default text
+      const textElement = document.getElementById("text");
+      textElement.innerHTML = "";
+  
+      // Now add the new transcript inside a span and append a line break
+      textElement.innerHTML += `<span>${transcript}</span><br>`;
   
       // Scroll to the bottom of the captions div
       captions.scrollTop = captions.scrollHeight;
