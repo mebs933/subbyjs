@@ -21,6 +21,9 @@ body::before {
   z-index: -1;
 }
 
+
+/* General */
+
 .content {
   position: relative;
   z-index: 1;
@@ -54,6 +57,8 @@ body::before {
   z-index: 1;
 }
 
+/* Recording */
+
 .recording .outline {
   display: block;
   width: 4vw;
@@ -79,6 +84,8 @@ body::before {
   background: #dd5050;
   box-shadow: 0px 0px 8vw #f90000;
 }
+
+/* Animations */
 
 @keyframes pulse {
   0% {
@@ -132,6 +139,8 @@ body::before {
   z-index: 4;
 }
 
+/* Captions */
+
 .captions {
   font: 3.2rem/1.25 'Rubik', sans-serif;
   text-align: center;
@@ -161,12 +170,20 @@ body::before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Slider */
 .slider-container {
-  position: absolute;
-  right: 1vw; /* Adjust as needed */
-  height: 100%;
+  position: fixed;
+  right: 2vw; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
+  z-index: 5; /* Adjust as needed */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1vw;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .slider {
@@ -191,13 +208,15 @@ body::before {
   appearance: none;
   width: 2.5vw; /* Adjust as needed */
   height: 2.5vw; /* Adjust as needed */
-  background: #4CAF50;
+  background: #800080; /* Dark purple */
   cursor: pointer;
+  box-shadow: 0 0 10px 5px #800080; /* Add a glow effect */
 }
 
 .slider::-moz-range-thumb {
   width: 2.5vw; /* Adjust as needed */
   height: 2.5vw; /* Adjust as needed */
-  background: #4CAF50;
+  background: #800080; /* Dark purple */
   cursor: pointer;
+  box-shadow: 0 0 10px 5px #800080; /* Add a glow effect */
 }
