@@ -163,11 +163,12 @@ body::before {
 
 .slider-container {
   position: absolute;
-  right: 5vw; /* Adjust as needed */
+  right: 1vw; /* Adjust as needed */
   top: 25vh; /* Adjust as needed */
   display: flex;
   align-items: center;
   z-index: 5; /* Adjust as needed */
+  margin-right: 1vw; /* Add right margin */
 }
 
 .slider {
@@ -184,21 +185,7 @@ body::before {
   height: 100%;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 1vw;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
