@@ -155,20 +155,20 @@ body::before {
 
 .captions span {
   display: inline-block;
-  line-height: 4rem;
+  line-height: 1.25em; /* Adjusted to scale with the font size */
   padding: 1rem;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.slider-container {
-  position: absolute;
-  right: 1vw; /* Adjust as needed */
-  top: 25vh; /* Adjust as needed */
-  display: flex;
-  align-items: center;
-  z-index: 5; /* Adjust as needed */
-  margin-right: 1vw; /* Add right margin */
+.slider {
+  -webkit-appearance: none;
+  width: 1vw; /* Width of the slider */
+  height: 50vh; /* Height of the slider, adjust as necessary */
+  background: transparent;
+  outline: none;
+  writing-mode: bt-lr; /* This makes the slider vertical */
+  transform: rotate(270deg); /* Standard method to rotate the slider */
 }
 
 .slider {
