@@ -61,14 +61,10 @@ window.addEventListener("load", () => {
 
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
-      // First clear the default text
-      const textElement = document.getElementById("text");
-      textElement.innerHTML = "";
-  
-      // Now add the new transcript inside a span and append a line break
-      textElement.innerHTML += `<span>${transcript}</span><br>`;
-  
-      // Scroll to the bottom of the captions div
+      // Voeg de nieuwe tekst toe aan het einde van de bestaande tekst
+      text.innerHTML = text.innerHTML + `<span>${transcript}</span>`;
+      
+      // Scroll naar de onderkant van de div
       captions.scrollTop = captions.scrollHeight;
     }
   });

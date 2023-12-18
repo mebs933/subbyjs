@@ -1,11 +1,6 @@
-// Select the slider and the captions elements
-const fontSizeSlider = document.querySelector('.slider');
-const captions = document.querySelector('.captions');
-
-// Add an event listener for when the slider value changes
-fontSizeSlider.addEventListener('input', function() {
-  // Get the current value of the slider
-  let fontSize = fontSizeSlider.value;
-  // Update the font size of the captions using the slider's value
-  captions.style.fontSize = fontSize + 'rem';
-});
+document.getElementById("fontSlider").oninput = function() {
+  var value = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
+  var fontSize = this.value;
+  document.getElementById("text").style.fontSize = fontSize + "px";
+};

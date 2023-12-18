@@ -155,51 +155,49 @@ body::before {
 
 .captions span {
   display: inline-block;
-  line-height: 1.25em; /* Adjusted to scale with the font size */
+  line-height: 4rem;
   padding: 1rem;
   color: white;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.slider-container {
+  position: absolute;
+  right: 1vw; /* Adjust as needed */
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .slider {
-  appearance: none;
+  width: 20vw; /* Adjust as needed */
+  height: 1vw; /* Adjust as needed */
   -webkit-appearance: none;
-  width: 1vw;
-  height: 50vh;
-  background: transparent;
+  appearance: none;
+  background: #d3d3d3;
   outline: none;
-  writing-mode: bt-lr;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
   transform: rotate(270deg);
 }
 
-/* For WebKit (Chrome, Safari, newer versions of Opera): */
+.slider:hover {
+  opacity: 1;
+}
+
 .slider::-webkit-slider-thumb {
-  appearance: none;
   -webkit-appearance: none;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 50%;
+  appearance: none;
+  width: 2.5vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
   background: #4CAF50;
   cursor: pointer;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* For Mozilla Firefox: */
 .slider::-moz-range-thumb {
-  width: 2vw;
-  height: 2vw;
-  border-radius: 50%;
-  background: #4CAF50;
-  cursor: pointer;
-}
-
-/* For Internet Explorer */
-.slider::-ms-thumb {
-  width: 2vw;
-  height: 2vw;
-  border-radius: 50%;
+  width: 2.5vw; /* Adjust as needed */
+  height: 2.5vw; /* Adjust as needed */
   background: #4CAF50;
   cursor: pointer;
 }
