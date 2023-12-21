@@ -170,66 +170,53 @@ body::before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Slider styles */
+/* Slider Container */
+.slider-container {
+  position: fixed;
+  right: 1vw; /* Common padding to the right, adjust as needed */
+  top: 50%;
+  transform: translateY(-50%); /* Center it vertically */
+  z-index: 5; /* Ensure the slider is above other elements */
+}
+
+/* Slider */
 .slider {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%; /* Make the slider take up 100% width of its container */
-  height: 25px; /* Fixed height for better control on different screen sizes */
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  -webkit-appearance: none; /* Override default look for Chrome, Safari */
+  appearance: none; /* Override default look for modern browsers */
+  width: 20vw; /* Length of the slider */
+  height: 1vw; /* Thickness of the slider */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  border-radius: 1vw; /* Rounded corners */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Shadow for a 3D effect */
+  backdrop-filter: blur(4px); /* Blur effect for the background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
+  -webkit-transition: .2s; /* Smooth transition for Chrome, Safari */
   transition: opacity .2s;
+  transform: rotate(270deg); /* Rotate the slider to be vertical */
+  /* ... other styles remain unchanged */
 }
 
 .slider:hover {
-  opacity: 1;
+  opacity: 1; /* Full opacity on hover */
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 25px;
-  height: 25px;
-  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080;
+  -webkit-appearance: none; /* Override default look for Chrome, Safari */
+  width: 2.5vw; /* Width of the thumb handle */
+  height: 2.5vw; /* Height of the thumb handle */
+  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Gradient effect */
   cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px 5px #800080; /* Glow effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border for the thumb handle */
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
-  background: #800080;
+  width: 2.5vw; /* Width of the thumb handle for Firefox */
+  height: 2.5vw; /* Height of the thumb handle for Firefox */
+  background: #800080; /* Solid color for Firefox */
   cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080;
+  box-shadow: 0 0 10px 5px #800080; /* Glow effect for Firefox */
 }
 
-/* Position the slider container on the right side of the screen, centered vertically */
-.slider-container {
-  position: fixed;
-  right: 2vw; /* Adjust as needed for padding */
-  top: 50%;
-  transform: translateY(-50%) rotate(270deg); /* Rotate the slider to vertical and center it */
-  z-index: 5; /* Ensure the slider is above other elements */
-  width: 25px; /* Width of the slider container */
-  height: 80vh; /* Height can be adjusted based on the height you want for your slider */
-}
-
-/* Ensure responsiveness */
-@media (max-width: 768px) {
-  .slider-container {
-    right: 10px; /* Less padding on smaller screens */
-    height: 60vh; /* Shorter slider on smaller screens */
-  }
-
-  .slider::-webkit-slider-thumb,
-  .slider::-moz-range-thumb {
-    width: 15px; /* Smaller thumb on smaller screens */
-    height: 15px; /* Smaller thumb on smaller screens */
-  }
-}
