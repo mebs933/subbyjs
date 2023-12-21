@@ -173,10 +173,15 @@ body::before {
 /* Slider Container */
 .slider-container {
   position: fixed;
-  right: 1vw; /* Common padding to the right, adjust as needed */
+  right: 1vw; /* Align to the right edge of the viewport */
   top: 50%;
-  transform: translateY(-50%); /* Center it vertically */
-  z-index: 5; /* Ensure the slider is above other elements */
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 1vw; /* Ensure the container's width matches the slider's thickness */
+  height: 20vw; /* Ensure the container's height matches the slider's length */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Slider */
@@ -195,7 +200,6 @@ body::before {
   -webkit-transition: .2s; /* Smooth transition for Chrome, Safari */
   transition: opacity .2s;
   transform: rotate(270deg); /* Rotate the slider to be vertical */
-  /* ... other styles remain unchanged */
 }
 
 .slider:hover {
