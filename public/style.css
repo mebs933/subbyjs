@@ -42,7 +42,6 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  margin-bottom: 5vh; /* Reduced to move button down */
 }
 
 .object {
