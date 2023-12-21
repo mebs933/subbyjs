@@ -71,6 +71,7 @@ body::before {
 }
 
 .button {
+  z-index: 10;
   width: 8vw; 
   height: 8vw; 
   border-radius: 50%;
@@ -136,7 +137,7 @@ body::before {
   height: 4vw; /* Reduced to shrink the button */
   position: absolute;
   /* margin: 2.1vw; Removed to center the soundwave icon */
-  z-index: 4;
+  z-index: 11;
 }
 
 /* Captions */
@@ -208,10 +209,12 @@ body::before {
   appearance: none;
   width: 2.5vw; /* Adjust as needed */
   height: 2.5vw; /* Adjust as needed */
-  background: #800080; /* Dark purple */
+  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Dark purple */
   cursor: pointer;
   box-shadow: 0 0 10px 5px #800080; /* Add a glow effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Add a border for the glass effect */
 }
+
 
 .slider::-moz-range-thumb {
   width: 2.5vw; /* Adjust as needed */
