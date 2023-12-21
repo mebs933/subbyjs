@@ -171,54 +171,50 @@ body::before {
 }
 
 /* Slider */
+.slider {
+  -webkit-appearance: none; /* Override default look for Chrome, Safari */
+  appearance: none; /* Override default look for modern browsers */
+  width: 20vw; /* Length of the slider */
+  height: 1vw; /* Thickness of the slider */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+  border-radius: 1vw; /* Rounded corners */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Shadow for a 3D effect */
+  backdrop-filter: blur(4px); /* Blur effect for the background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s; /* Smooth transition for Chrome, Safari */
+  transition: opacity .2s;
+  transform: rotate(270deg); /* Rotate the slider to be vertical */
+}
+
+.slider:hover {
+  opacity: 1; /* Full opacity on hover */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look for Chrome, Safari */
+  width: 2.5vw; /* Width of the thumb handle */
+  height: 2.5vw; /* Height of the thumb handle */
+  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Gradient effect */
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px #800080; /* Glow effect */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Border for the thumb handle */
+}
+
+.slider::-moz-range-thumb {
+  width: 2.5vw; /* Width of the thumb handle for Firefox */
+  height: 2.5vw; /* Height of the thumb handle for Firefox */
+  background: #800080; /* Solid color for Firefox */
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px #800080; /* Glow effect for Firefox */
+}
+
+/* Ensure the slider container does not have additional visual styles */
 .slider-container {
   position: fixed;
   right: 2vw; /* Adjust as needed */
   top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  z-index: 5; /* Adjust as needed */
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1vw;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.slider {
-  width: 20vw; /* Adjust as needed */
-  height: 1vw; /* Adjust as needed */
-  -webkit-appearance: none;
-  appearance: none;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
-  transform: rotate(270deg);
-}
-
-.slider:hover {
-  opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 2.5vw; /* Adjust as needed */
-  height: 2.5vw; /* Adjust as needed */
-  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Dark purple */
-  cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080; /* Add a glow effect */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Add a border for the glass effect */
-}
-
-
-.slider::-moz-range-thumb {
-  width: 2.5vw; /* Adjust as needed */
-  height: 2.5vw; /* Adjust as needed */
-  background: #800080; /* Dark purple */
-  cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080; /* Add a glow effect */
+  z-index: 5; /* Ensure the slider is above other elements */
 }
