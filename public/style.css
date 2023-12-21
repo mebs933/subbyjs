@@ -37,6 +37,7 @@ body::before {
 }
 
 .box {
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +72,6 @@ body::before {
 }
 
 .button {
-  z-index: 10;
   width: 8vw; 
   height: 8vw; 
   border-radius: 50%;
@@ -137,7 +137,7 @@ body::before {
   height: 4vw; /* Reduced to shrink the button */
   position: absolute;
   /* margin: 2.1vw; Removed to center the soundwave icon */
-  z-index: 11;
+  z-index: 3;
 }
 
 /* Captions */
