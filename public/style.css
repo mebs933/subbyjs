@@ -33,7 +33,7 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  height: 90vh;
 }
 
 .box {
@@ -41,11 +41,11 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
-  max-width: calc(100% - 20px); /* max width with a 10px margin on each side */
-  max-height: calc(100% - 20px); /* max height with a 10px margin on each side */
-  margin: 10px auto; /* centers the box with a margin on the top and bottom */
-  overflow: hidden; /* in case any child elements overflow */
+  flex-grow: 0;
+  max-width: calc(100% - 20px);
+  max-height: calc(100% - 20px);
+  margin: 10px auto;
+  overflow: hidden;
 }
 
 .object {
@@ -60,8 +60,6 @@ body::before {
   position: absolute;
   z-index: 1;
 }
-
-/* Recording */
 
 .recording .outline {
   display: block;
@@ -88,8 +86,6 @@ body::before {
   background: #dd5050;
   box-shadow: 0px 0px 8vw #f90000;
 }
-
-/* Animations */
 
 @keyframes pulse {
   0% {
@@ -119,16 +115,16 @@ body::before {
 }
 
 #circlein {
-  width: 6vw; /* Reduced to shrink the button */
-  height: 6vw; /* Reduced to shrink the button */
+  width: 6vw;
+  height: 6vw;
   border-radius: 50%;
   background: #6bd6e1;
   box-shadow: 0px -0.2vw 1.5vw #e0ff94;
   position: absolute;
   z-index: 3;
-  display: flex; /* Added to center the soundwave icon */
-  justify-content: center; /* Added to center the soundwave icon */
-  align-items: center; /* Added to center the soundwave icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .recording #circlein {
@@ -137,11 +133,11 @@ body::before {
 }
 
 .soundwave-icon {
-  height: 4vw; /* Reduced to shrink the button */
+  height: 4vw;
   position: absolute;
-  /* margin: 2.1vw; Removed to center the soundwave icon */
   z-index: 3;
 }
+
 
 /* Captions */
 
@@ -153,7 +149,7 @@ body::before {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  height: 70vh; /* Increased to expand the height of card/transcript */
+  height: 70vh;
   width: 80vw;
   overflow:auto;
   background: rgba(255, 255, 255, 0.1);
@@ -163,7 +159,7 @@ body::before {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   color: white;
   padding-top: 1rem;
-  margin-top: 5vh; /* Reduced to move button down */
+  margin-top: 5vh;
 }
 
 .captions span {
@@ -177,12 +173,12 @@ body::before {
 /* Slider Container */
 .slider-container {
   position: fixed;
-  right: 1vw; /* Align to the right edge of the viewport */
+  right: 1vw;
   top: 50%;
   transform: translateY(-50%);
   z-index: 5;
-  width: 1vw; /* Ensure the container's width matches the slider's thickness */
-  height: 20vw; /* Ensure the container's height matches the slider's length */
+  width: 1vw;
+  height: 20vw; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,41 +186,41 @@ body::before {
 
 /* Slider */
 .slider {
-  -webkit-appearance: none; /* Override default look for Chrome, Safari */
-  appearance: none; /* Override default look for modern browsers */
-  width: 20vw; /* Length of the slider */
-  height: 1vw; /* Thickness of the slider */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-  border-radius: 1vw; /* Rounded corners */
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Shadow for a 3D effect */
-  backdrop-filter: blur(4px); /* Blur effect for the background */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20vw;
+  height: 1vw; 
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1vw;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s; /* Smooth transition for Chrome, Safari */
+  -webkit-transition: .2s;
   transition: opacity .2s;
-  transform: rotate(270deg); /* Rotate the slider to be vertical */
+  transform: rotate(270deg);
 }
 
 .slider:hover {
-  opacity: 1; /* Full opacity on hover */
+  opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look for Chrome, Safari */
-  width: 2.5vw; /* Width of the thumb handle */
-  height: 2.5vw; /* Height of the thumb handle */
+  -webkit-appearance: none;
+  width: 2.5vw;
+  height: 2.5vw;
   background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Gradient effect */
   cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080; /* Glow effect */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Border for the thumb handle */
+  box-shadow: 0 0 10px 5px #800080;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .slider::-moz-range-thumb {
-  width: 2.5vw; /* Width of the thumb handle for Firefox */
-  height: 2.5vw; /* Height of the thumb handle for Firefox */
-  background: #800080; /* Solid color for Firefox */
+  width: 2.5vw;
+  height: 2.5vw;
+  background: #800080;
   cursor: pointer;
-  box-shadow: 0 0 10px 5px #800080; /* Glow effect for Firefox */
+  box-shadow: 0 0 10px 5px #800080;
 }
 
