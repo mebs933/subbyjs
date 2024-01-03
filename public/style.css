@@ -42,6 +42,10 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  max-width: calc(100% - 20px); /* max width with a 10px margin on each side */
+  max-height: calc(100% - 20px); /* max height with a 10px margin on each side */
+  margin: 10px auto; /* centers the box with a margin on the top and bottom */
+  overflow: hidden; /* in case any child elements overflow */
 }
 
 .object {
