@@ -21,9 +21,6 @@ body::before {
   z-index: -1;
 }
 
-
-/* General */
-
 .content {
   position: relative;
   z-index: 1;
@@ -32,8 +29,8 @@ body::before {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 90vh;
+  justify-content: flex-end; /* Adjusted from space-between to flex-end */
+  height: 100vh; /* Adjusted from 90vh to 100vh */
 }
 
 .box {
@@ -42,9 +39,9 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 0;
-  max-width: calc(100% - 20px);
-  max-height: calc(100% - 20px);
-  margin: 10px auto;
+  width: 100%; /* Adjusted from max-width to width */
+  height: 10vh; /* Adjusted from max-height to height */
+  margin: 0 auto; /* Adjusted from 10px auto to 0 auto */
   overflow: hidden;
 }
 
@@ -137,6 +134,7 @@ body::before {
   position: absolute;
   z-index: 3;
 }
+
 
 
 /* Captions */
