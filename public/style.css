@@ -29,8 +29,9 @@ body::before {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Adjusted from space-between to flex-start */
+  justify-content: flex-start; /* Keeps items at the start of the container */
   height: 100vh; 
+  padding-bottom: 2vh; /* Responsive padding from the bottom */
 }
 
 .box {
@@ -44,6 +45,7 @@ body::before {
   margin: 0 auto; 
   overflow: visible; /* Adjusted from hidden to visible */
   position: relative; /* New line added */
+  margin-top: 2%; /* New line added */
 }
 
 .object {
@@ -51,9 +53,11 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute; /* New line added */
-  bottom: 5%; /* Adjusted for responsiveness */
+  position: relative; /* Adjusted from absolute to relative */
+  bottom: auto; /* Adjusted from 5% to auto */
+  margin-top: 2%; /* New line added for space above the button */
 }
+
 
 /* Rest of your CSS remains the same */
 
