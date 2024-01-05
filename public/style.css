@@ -29,9 +29,8 @@ body::before {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: flex-start; /* Adjusted from space-between to flex-start */
   height: 100vh; 
-  padding-bottom: 5%; /* Responsive padding from the bottom */
 }
 
 .box {
@@ -55,6 +54,8 @@ body::before {
   position: absolute; /* New line added */
   bottom: 5%; /* Adjusted for responsiveness */
 }
+
+/* Rest of your CSS remains the same */
 
 .outline {
   display: none;
