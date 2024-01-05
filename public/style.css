@@ -29,8 +29,8 @@ body::before {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Adjusted from space-between to flex-end */
-  height: 100vh; /* Adjusted from 90vh to 100vh */
+  justify-content: space-between; 
+  height: 100vh; 
 }
 
 .box {
@@ -39,9 +39,9 @@ body::before {
   justify-content: center;
   align-items: center;
   flex-grow: 0;
-  width: 100%; /* Adjusted from max-width to width */
-  height: 10vh; /* Adjusted from max-height to height */
-  margin: 0 auto; /* Adjusted from 10px auto to 0 auto */
+  width: 100%; 
+  height: 10vh; 
+  margin: 0 auto; 
   overflow: hidden;
 }
 
@@ -136,9 +136,6 @@ body::before {
 }
 
 
-
-/* Captions */
-
 .captions {
   font: 3.2rem/1.25 'Rubik', sans-serif;
   text-align: center;
@@ -168,7 +165,6 @@ body::before {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Slider Container */
 .slider-container {
   position: fixed;
   right: 1vw;
@@ -182,7 +178,6 @@ body::before {
   justify-content: center;
 }
 
-/* Slider */
 .slider {
   -webkit-appearance: none;
   appearance: none;
@@ -208,7 +203,7 @@ body::before {
   -webkit-appearance: none;
   width: 2.5vw;
   height: 2.5vw;
-  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080; /* Gradient effect */
+  background-image: radial-gradient(circle at top left, rgba(255,255,255,0.1), rgba(255,255,255,0)), #800080;
   cursor: pointer;
   box-shadow: 0 0 10px 5px #800080;
   border: 1px solid rgba(255, 255, 255, 0.3);
