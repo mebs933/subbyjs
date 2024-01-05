@@ -31,6 +31,7 @@ body::before {
   flex-direction: column;
   justify-content: space-between; 
   height: 100vh; 
+  padding-bottom: 5%; /* Responsive padding from the bottom */
 }
 
 .box {
@@ -40,9 +41,10 @@ body::before {
   align-items: center;
   flex-grow: 0;
   width: 100%; 
-  height: 10vh; 
+  height: auto; /* Adjusted from 10vh to auto */
   margin: 0 auto; 
-  overflow: hidden;
+  overflow: visible; /* Adjusted from hidden to visible */
+  position: relative; /* New line added */
 }
 
 .object {
@@ -50,6 +52,8 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: absolute; /* New line added */
+  bottom: 5%; /* Adjusted for responsiveness */
 }
 
 .outline {
@@ -134,6 +138,7 @@ body::before {
   position: absolute;
   z-index: 3;
 }
+
 
 
 .captions {
