@@ -93,34 +93,34 @@ body::before {
 /* Object styles */
 .object {
   position: sticky;
-  bottom: 5vh;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 5vh; /* Sticks to the bottom with a 5vh offset */
+  left: 50%; /* Centers the object horizontally */
+  transform: translateX(-50%); /* Adjusts for exact centering */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-shrink: 1;
-  min-height: 10px;
+  flex-shrink: 1; /* Allows the object to shrink if necessary */
+  min-height: 10px; /* Minimum height to ensure visibility */
 }
 
 .object .outline {
   display: none;
   position: absolute;
-  z-index: 1;
+  z-index: 1; /* Ensures outline is behind the button */
 }
 
-/* Button styles */
+/* Updated Button styles */
 .button, .recording .button {
-  width: 8vw;
-  height: 8vw;
-  flex-shrink: 1; /* Allows the button to shrink */
-  min-width: 15px; /* Minimum button width */
-  min-height: 15px; /* Minimum button height */
-  border-radius: 50%;
+  width: 8vh; /* Width is now based on viewport height */
+  height: 8vh; /* Height is now based on viewport height, helps maintain aspect ratio */
+  flex-shrink: 1; /* Allows the button to shrink if necessary */
+  min-width: 15px; /* Minimum button width to ensure visibility */
+  min-height: 15px; /* Minimum button height to ensure visibility */
+  border-radius: 50%; /* Makes the button circular */
   position: relative;
-  z-index: 2;
-  cursor: pointer;
+  z-index: 2; /* Ensures button is above the outline */
+  cursor: pointer; /* Indicates the button is clickable */
 }
 
 .button {
