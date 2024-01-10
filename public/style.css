@@ -49,13 +49,14 @@ body::before {
 }
 
 .object {
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; /* Adjusted from absolute to relative */
-  bottom: auto; /* Adjusted from 5% to auto */
-  margin-top: 2%; /* New line added for space above the button */
 }
 
 
