@@ -26,28 +26,30 @@ body::before {
   z-index: 1;
 }
 
+/* Styles for the `.container` class */
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Keeps items at the start of the container */
-  height: 100vh; 
-  padding-bottom: 2vh; /* Responsive padding from the bottom */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  padding-bottom: 2vh;
 }
 
+/* Styles for the `.box` class */
 .box {
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 0;
-  width: 100%; 
-  height: auto; /* Adjusted from 10vh to auto */
-  margin: 0 auto; 
-  overflow: visible; /* Adjusted from hidden to visible */
-  position: relative; /* New line added */
-  margin-top: 2%; /* New line added */
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  margin-top: 2%;
 }
 
+/* Styles for the `.object` class */
 .object {
   position: fixed;
   bottom: 5vh;
@@ -59,9 +61,13 @@ body::before {
   align-items: center;
 }
 
-
-/* Rest of your CSS remains the same */
-
+/* Media query to make the `.object` class smaller on smaller screens */
+@media (max-width: 768px) {
+  .object {
+    width: 6vw;
+    height: 6vw;
+  }
+}
 .outline {
   display: none;
   position: absolute;
