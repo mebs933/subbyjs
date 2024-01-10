@@ -59,12 +59,9 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
 
-/* Media query to make the `.object` class smaller on smaller screens */
-@media (max-width: 768px) {
-  .object {
-    display: block;
+  @media (max-width: 768px) {
+    /* No need to specify any properties here */
   }
 }
 .outline {
