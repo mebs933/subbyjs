@@ -52,7 +52,7 @@ body::before {
 /* Styles for the `.object` class */
 .object {
   position: fixed;
-  bottom: 5rem;
+  bottom: 5vh;
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
@@ -157,8 +157,8 @@ body::before {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  height: 70vh;
-  width: 80vw;
+  height: 70rem;
+  width: 80rem;
   overflow:auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
