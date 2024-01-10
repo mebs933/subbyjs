@@ -53,8 +53,8 @@ body::before {
 .object {
   position: fixed;
   bottom: 5vh;
-  left: 50%;
-  transform: translate(-50%, 0);
+  left: 0;
+  margin-left: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
