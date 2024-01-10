@@ -52,7 +52,7 @@ body::before {
 /* Styles for the `.object` class */
 .object {
   position: fixed;
-  bottom: 5vh;
+  bottom: 5rem;
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
