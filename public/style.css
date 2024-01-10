@@ -51,7 +51,7 @@ body::before {
 
 /* Styles for the `.object` class */
 .object {
-  position: absolute;
+  position: fixed;
   bottom: 5vh;
   left: 50%;
   transform: translate(-50%, 0);
@@ -59,8 +59,11 @@ body::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 1vh;
 
+  @media (max-width: 768px) {
+    /* No need to specify any properties here */
+  }
+}
 .outline {
   display: none;
   position: absolute;
@@ -225,4 +228,5 @@ body::before {
   background: #800080;
   cursor: pointer;
   box-shadow: 0 0 10px 5px #800080;
-}}
+}
+
