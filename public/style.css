@@ -31,7 +31,7 @@ body::before {
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100vh;
-  padding-bottom: 2vh;
+  padding-bottom: 1vh;
 }
 
 /* Styles for the `.box` class */
@@ -46,7 +46,6 @@ body::before {
   margin: 0 auto;
   overflow: visible;
   position: relative;
-  margin-top: 1%;
 }
 
 /* Styles for the `.object` class */
