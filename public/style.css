@@ -113,9 +113,13 @@ body::before {
 .button, .recording .button {
   width: 8vw;
   height: 8vw;
+  flex-shrink: 1; /* Allows the button to shrink */
+  min-width: 15px; /* Minimum button width */
+  min-height: 15px; /* Minimum button height */
   border-radius: 50%;
   position: relative;
   z-index: 2;
+  cursor: pointer;
 }
 
 .button {
