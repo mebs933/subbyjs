@@ -51,7 +51,7 @@ body::before {
 
 /* Styles for the `.object` class */
 .object {
-  position: fixed;
+  position: sticky;
   bottom: 5vh;
   left: 50%;
   transform: translate(-50%, 0);
