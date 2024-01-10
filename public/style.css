@@ -87,46 +87,43 @@ body::before {
   width: 100%;
   margin: 0 auto;
   position: relative;
-  max-height: 100vh; /* Ensure .box is not taller than the viewport */
+  max-height: 100vh; /* Limit the .box height to the viewport height */
 }
 
 /* Object styles */
 .object {
   position: sticky;
-  bottom: 5vh; /* Sticks to the bottom with a 5vh offset */
-  left: 50%; /* Centers the object horizontally */
-  transform: translateX(-50%); /* Adjusts for exact centering */
+  bottom: 5vh; /* Stick to the bottom with a 5vh offset */
+  left: 50%; /* Center the object horizontally */
+  transform: translateX(-50%); /* Correct for exact centering horizontally */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-shrink: 1; /* Allows the object to shrink if necessary */
-  min-height: 10px; /* Minimum height to ensure visibility */
+  flex-shrink: 0; /* Prevent the object from shrinking */
+  min-height: 10px; /* Ensure visibility */
+  z-index: 2; /* Above .outline */
 }
 
 .object .outline {
-  display: block;
+  display: none; /* Initially hidden, will be shown when .recording is added */
   position: absolute;
-  z-index: 1; /* Ensures outline is behind the button */
+  z-index: 1; /* Behind the button */
 }
 
-/* Updated Button styles */
-.button, .recording .button {
-  width: 8vh; /* Width is now based on viewport height */
-  height: 8vh; /* Height is now based on viewport height, helps maintain aspect ratio */
-  flex-shrink: 1; /* Allows the button to shrink if necessary */
-  min-width: 15px; /* Minimum button width to ensure visibility */
-  min-height: 15px; /* Minimum button height to ensure visibility */
-  border-radius: 50%; /* Makes the button circular */
-  position: relative;
-  z-index: 2; /* Ensures button is above the outline */
-  cursor: pointer; /* Indicates the button is clickable */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
+/* Button styles */
 .button {
+  width: 8vh;
+  height: 8vh;
+  flex-shrink: 0; /* Prevent the button from shrinking */
+  min-width: 15px; /* Ensure visibility */
+  min-height: 15px; /* Ensure visibility */
+  border-radius: 50%; /* Circular shape */
+  position: relative;
+  z-index: 3; /* Above .outline and .object */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background: #50cddd;
-  box-shadow: 0px 0px 8vw #0084f9;
 }
 
 .recording .button {
@@ -134,8 +131,8 @@ body::before {
   box-shadow: 0px 0px 8vw #f90000;
 }
 
-.recording .outline {
-  display: block;
+.recording .object .outline {
+  display: block; /* Show when .recording is active */
   width: 4vw;
   height: 4vw;
   border-radius: 50%;
@@ -147,7 +144,7 @@ body::before {
 .soundwave-icon {
   height: 4vw;
   position: absolute;
-  z-index: 3;
+  z-index: 4; /* Above all */
 }
 
 @keyframes pulse {
