@@ -64,8 +64,7 @@ body::before {
 /* Media query to make the `.object` class smaller on smaller screens */
 @media (max-width: 768px) {
   .object {
-    width: 6vw;
-    height: 6vw;
+    display: block;
   }
 }
 .outline {
