@@ -61,11 +61,6 @@ body::before {
   align-items: center;
   padding-top: 1vh;
 
-  @media (max-width: 768px) {
-    .object {
-      bottom: 5vh;
-    }
-  }
 .outline {
   display: none;
   position: absolute;
