@@ -157,8 +157,8 @@ body::before {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  height: 70rem;
-  width: 80rem;
+  height: 70vh;
+  width: 80vw;
   overflow:auto;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
