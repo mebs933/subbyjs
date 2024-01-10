@@ -121,6 +121,7 @@ body::before {
   position: relative;
   z-index: 2; /* Ensures button is above the outline */
   cursor: pointer; /* Indicates the button is clickable */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button {
