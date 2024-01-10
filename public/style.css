@@ -105,7 +105,7 @@ body::before {
 }
 
 .object .outline {
-  display: none;
+  display: block;
   position: absolute;
   z-index: 1; /* Ensures outline is behind the button */
 }
