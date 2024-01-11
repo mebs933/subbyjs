@@ -1,3 +1,5 @@
+import noSleep from './nosleep.js';
+
 const captions = window.document.getElementById("captions");
 const text = window.document.getElementById("text");
 
@@ -16,11 +18,15 @@ async function openMicrophone(microphone, socket) {
     console.log("client: microphone opened");
     document.body.classList.add("recording");
     text.innerHTML = ""; // Verwijder de placeholder tekst zodra de transcriptie start
+
+    noSleep.enable();
   };
 
   microphone.onstop = () => {
     console.log("client: microphone closed");
     document.body.classList.remove("recording");
+
+    noSleep.disable();
   };
 
   microphone.ondataavailable = (e) => {
