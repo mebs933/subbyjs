@@ -1,27 +1,24 @@
-// client.js - This file is responsible for sending and receiving data from the server.
+// /workspaces/subbyjs/public/client.js
+import io from "socket.io-client";
+const options = { transports: ["websocket"] };
+const socket = io(options);
 
-// Add an event listener for the "load" event.
-window.addEventListener("load", () => {
-  // Create a new socket connection.
-  const socket = io((options = { transports: ["websocket"] }));
+// Add an event listener for the "connect" event.
+socket.on("connect", async () => {
+  // Log a message to the console.
+  console.log("client: connected to websocket");
 
-  // Add an event listener for the "connect" event.
-  socket.on("connect", async () => {
-    // Log a message to the console.
-    console.log("client: connected to websocket");
+  // Start the microphone.
+  await start(socket);
+});
 
-    // Start the microphone.
-    await start(socket);
-  });
-
-  // Add an event listener for the "transcript" event.
-  socket.on("transcript", (transcript) => {
-    // If the transcript is not empty, add it to the transcript storage.
-    if (transcript !== "") {
-      // Add the transcript line to the transcript storage.
-      socket.emit("add-transcript-line", transcript);
-    }
-  });
+// Add an event listener for the "transcript" event.
+socket.on("transcript", (transcript) => {
+  // If the transcript is not empty, add it to the transcript storage.
+  if (transcript !== "") {
+    // Add the transcript line to the transcript storage.
+    socket.emit("add-transcript-line", transcript);
+  }
 });
 
 // Define the `getMicrophone()`, `openMicrophone()`, `closeMicrophone()`, and `start()` functions.
@@ -51,7 +48,7 @@ async function openMicrophone(microphone, socket) {
     text.innerHTML = "";
 
     // Enable NoSleep.js.
-    NoSleep.enable();
+
   };
 
   // Add an event listener for the "stop" event.
@@ -62,8 +59,6 @@ async function openMicrophone(microphone, socket) {
     // Remove the "recording" class from the body element.
     document.body.classList.remove("recording");
 
-    // Disable NoSleep.js.
-    NoSleep.disable();
   };
 
   // Add an event listener for the "dataavailable" event.
@@ -109,3 +104,6 @@ async function start(socket) {
     }
   });
 }
+
+// Declare the `text` variable.
+const text = document.getElementById("text");

@@ -1,5 +1,8 @@
-// /workspaces/subbyjs/public/captions.js Import the transcriptstorage.js file
+// Import the transcriptstorage.js file
 import { getTranscriptLines } from './transcriptstorage.js';
+import io from "socket.io-client";
+const options = { transports: ["websocket"] };
+const socket = io(options);
 
 // Get the .captions and .text elements
 const captions = document.getElementById("captions");
