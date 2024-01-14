@@ -1,8 +1,5 @@
 // client.js - This file is responsible for sending and receiving data from the server.
 
-// Import the necessary modules.
-import NoSleep from '../../node_modules/nosleep.js/dist/NoSleep.js';
-
 // Add an event listener for the "load" event.
 window.addEventListener("load", () => {
   // Create a new socket connection.

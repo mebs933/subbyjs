@@ -1,4 +1,4 @@
-// Import the transcriptstorage.js file
+// /workspaces/subbyjs/public/captions.js Import the transcriptstorage.js file
 import { getTranscriptLines } from './transcriptstorage.js';
 
 // Get the .captions and .text elements

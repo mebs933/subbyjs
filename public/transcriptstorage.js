@@ -1,4 +1,4 @@
-// This file stores the transcript lines in an array.
+// /workspaces/subbyjs/public/transcriptstorage.js This file stores the transcript lines in an array.
 
 // Create an array to store the transcript lines
 const transcriptLines = [];
