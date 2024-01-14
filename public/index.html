@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Subby - Peek into conversation</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -11,12 +11,12 @@
   crossorigin="anonymous"
 ></script>
   <link rel="stylesheet" href="style.css" />
-  <script src="../../node_modules/nosleep.js/dist/NoSleep.js"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="captions" id="captions">
+      <div class="card-body" id="text">Subby - Peek into conversation</div>
     </div>
     <div class="box">
       <div class="object" id="record">
@@ -28,6 +28,10 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="slider-container">
+    <input type="range" min="1" max="100" value="50" class="slider" id="fontSlider">
   </div>
 
   <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
