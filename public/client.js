@@ -1,109 +1,95 @@
 // /workspaces/subbyjs/public/client.js
 import io from "socket.io-client";
+
 const options = { transports: ["websocket"] };
 const socket = io(options);
 
 // Add an event listener for the "connect" event.
 socket.on("connect", async () => {
-  // Log a message to the console.
   console.log("client: connected to websocket");
-
-  // Start the microphone.
   await start(socket);
 });
 
 // Add an event listener for the "transcript" event.
 socket.on("transcript", (transcript) => {
-  // If the transcript is not empty, add it to the transcript storage.
   if (transcript !== "") {
-    // Add the transcript line to the transcript storage.
     socket.emit("add-transcript-line", transcript);
   }
 });
 
-// Define the `getMicrophone()`, `openMicrophone()`, `closeMicrophone()`, and `start()` functions.
 async function getMicrophone() {
-  // Get the user's microphone.
-  const userMedia = await navigator.mediaDevices.getUserMedia({
-    audio: true,
-  });
-
-  // Create a new MediaRecorder object.
-  return new MediaRecorder(userMedia);
+  try {
+    const userMedia = await navigator.mediaDevices.getUserMedia({
+      audio: true,
+    });
+    return new MediaRecorder(userMedia);
+  } catch (error) {
+    console.error('client: error accessing the microphone', error);
+    throw error; // You may want to handle this error differently.
+  }
 }
 
 async function openMicrophone(microphone, socket) {
-  // Start the microphone.
-  await microphone.start(500);
+  if (!microphone) {
+    console.error('client: microphone is not available');
+    return;
+  }
 
-  // Add an event listener for the "start" event.
-  microphone.onstart = () => {
-    // Log a message to the console.
-    console.log("client: microphone opened");
+  try {
+    await microphone.start(500);
+    microphone.onstart = () => {
+      console.log("client: microphone opened");
+      document.body.classList.add("recording");
+      text.innerHTML = "";
+    };
 
-    // Add the "recording" class to the body element.
-    document.body.classList.add("recording");
+    microphone.onstop = () => {
+      console.log("client: microphone closed");
+      document.body.classList.remove("recording");
+    };
 
-    // Clear the placeholder text from the .text element.
-    text.innerHTML = "";
-
-    // Enable NoSleep.js.
-
-  };
-
-  // Add an event listener for the "stop" event.
-  microphone.onstop = () => {
-    // Log a message to the console.
-    console.log("client: microphone closed");
-
-    // Remove the "recording" class from the body element.
-    document.body.classList.remove("recording");
-
-  };
-
-  // Add an event listener for the "dataavailable" event.
-  microphone.ondataavailable = (e) => {
-    // Log a message to the console.
-    console.log("client: sent data to websocket");
-
-    // Send the data to the server.
-    socket.emit("packet-sent", e.data);
-  };
+    microphone.ondataavailable = (e) => {
+      console.log("client: sent data to websocket");
+      socket.emit("packet-sent", e.data);
+    };
+  } catch (error) {
+    console.error('client: error opening the microphone', error);
+  }
 }
 
 async function closeMicrophone(microphone) {
-  // Stop the microphone.
+  if (!microphone) {
+    console.error('client: microphone is not available to close');
+    return;
+  }
+
   microphone.stop();
 }
 
 async function start(socket) {
-  // Get the "record" button element.
   const listenButton = document.getElementById("record");
-
-  // Create a variable to store the microphone.
   let microphone;
 
-  // Log a message to the console.
   console.log("client: waiting to open microphone");
 
-  // Add an event listener for the "click" event on the "record" button.
   listenButton.addEventListener("click", async () => {
-    // If the microphone is not defined, open the microphone.
     if (!microphone) {
-      // Open the microphone.
-      microphone = await getMicrophone();
-
-      // Start the microphone.
-      await openMicrophone(microphone, socket);
+      try {
+        microphone = await getMicrophone();
+        await openMicrophone(microphone, socket);
+      } catch (error) {
+        // Handle microphone access errors or any other errors
+        console.error('client: error starting the microphone', error);
+      }
     } else {
-      // Close the microphone.
       await closeMicrophone(microphone);
-
-      // Set the microphone to undefined.
       microphone = undefined;
     }
   });
 }
 
-// Declare the `text` variable.
+// Ensure the "text" element exists in your HTML and has the id "text"
 const text = document.getElementById("text");
+if (!text) {
+  console.error('client: the element with id "text" was not found');
+}
