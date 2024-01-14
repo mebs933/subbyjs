@@ -1,5 +1,5 @@
 // Import the nosleep.js library
-import NoSleep from 'nosleep.js';
+import noSleep from './node_modules/nosleep.js';
 
 // Create a new NoSleep object
 const noSleep = new NoSleep();

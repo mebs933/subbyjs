@@ -1,7 +1,4 @@
-import noSleep from './nosleep.js';
-
-const captions = window.document.getElementById("captions");
-const text = window.document.getElementById("text");
+import NoSleep from '../../node_modules/nosleep.js/dist/NoSleep.js';
 
 async function getMicrophone() {
   const userMedia = await navigator.mediaDevices.getUserMedia({
@@ -17,16 +14,16 @@ async function openMicrophone(microphone, socket) {
   microphone.onstart = () => {
     console.log("client: microphone opened");
     document.body.classList.add("recording");
-    text.innerHTML = ""; // Verwijder de placeholder tekst zodra de transcriptie start
+    text.innerHTML = "";
 
-    noSleep.enable();
+    NoSleep.enable();
   };
 
   microphone.onstop = () => {
     console.log("client: microphone closed");
     document.body.classList.remove("recording");
 
-    noSleep.disable();
+    NoSleep.disable();
   };
 
   microphone.ondataavailable = (e) => {
@@ -47,7 +44,6 @@ async function start(socket) {
 
   listenButton.addEventListener("click", async () => {
     if (!microphone) {
-      // open and close the microphone
       microphone = await getMicrophone();
       await openMicrophone(microphone, socket);
     } else {
@@ -67,11 +63,7 @@ window.addEventListener("load", () => {
 
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
-      // Voeg de nieuwe tekst toe aan het einde van de bestaande tekst
-      text.innerHTML = text.innerHTML + `<span>${transcript}</span>`;
-      
-      // Scroll naar de onderkant van de div
-      captions.scrollTop = captions.scrollHeight;
+      socket.emit("add-transcript-line", transcript);
     }
   });
 });
