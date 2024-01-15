@@ -1,5 +1,5 @@
-const captions = window.document.getElementById("captions");
-const text = window.document.getElementById("text");
+import io from 'socket.io-client';
+import transcriptStorage from './transcriptstorage.js'; // Assuming you have this module to handle storage
 
 async function getMicrophone() {
   const userMedia = await navigator.mediaDevices.getUserMedia({
@@ -15,7 +15,6 @@ async function openMicrophone(microphone, socket) {
   microphone.onstart = () => {
     console.log("client: microphone opened");
     document.body.classList.add("recording");
-    text.innerHTML = ""; // Verwijder de placeholder tekst zodra de transcriptie start
   };
 
   microphone.onstop = () => {
@@ -41,7 +40,6 @@ async function start(socket) {
 
   listenButton.addEventListener("click", async () => {
     if (!microphone) {
-      // open and close the microphone
       microphone = await getMicrophone();
       await openMicrophone(microphone, socket);
     } else {
@@ -52,7 +50,8 @@ async function start(socket) {
 }
 
 window.addEventListener("load", () => {
-  const socket = io((options = { transports: ["websocket"] }));
+  const options = { transports: ["websocket"] };
+  const socket = io(options);
 
   socket.on("connect", async () => {
     console.log("client: connected to websocket");
@@ -61,11 +60,8 @@ window.addEventListener("load", () => {
 
   socket.on("transcript", (transcript) => {
     if (transcript !== "") {
-      // Voeg de nieuwe tekst toe aan het einde van de bestaande tekst
-      text.innerHTML = text.innerHTML + `<span>${transcript}</span>`;
-      
-      // Scroll naar de onderkant van de div
-      captions.scrollTop = captions.scrollHeight;
+      // Here we update the transcript storage instead of directly manipulating the UI
+      transcriptStorage.addTranscript(transcript);
     }
   });
 });

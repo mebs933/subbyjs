@@ -1,19 +1,23 @@
-// /workspaces/subbyjs/public/transcriptstorage.js This file stores the transcript lines in an array.
+// transcriptstorage.js
+class TranscriptStorage {
+  constructor() {
+    this.transcripts = [];
+    this.listeners = [];
+  }
 
-// Create an array to store the transcript lines
-const transcriptLines = [];
+  addTranscript(transcript) {
+    this.transcripts.push(transcript);
+    // Notify all listeners about the new transcript
+    this.listeners.forEach(listener => listener(transcript));
+  }
 
-// Add a function to add a transcript line to the array
-function addTranscriptLine(transcriptLine) {
-  // Add the transcript line to the array
-  transcriptLines.push(transcriptLine);
+  onNewTranscript(listener) {
+    this.listeners.push(listener);
+  }
+
+  // Add more methods as needed, such as for summary generation
 }
 
-// Add a function to get the transcript lines from the array
-function getTranscriptLines() {
-  // Return the transcript lines
-  return transcriptLines;
-}
-
-// Export the functions
-export { addTranscriptLine, getTranscriptLines };
+// Export a single instance
+const transcriptStorage = new TranscriptStorage();
+export default transcriptStorage;

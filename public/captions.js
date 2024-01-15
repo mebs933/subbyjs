@@ -1,32 +1,26 @@
-// Import the necessary functions from transcriptstorage.js
-import { addTranscriptLine, getTranscriptLines } from './transcriptstorage.js';
-import io from "socket.io-client";
-const options = { transports: ["websocket"] };
-const socket = io(options);
+// captions.js
+import transcriptStorage from './transcriptstorage.js';
 
-// Get the .captions and .text elements
 const captions = document.getElementById("captions");
 const text = document.getElementById("text");
 
-// Add an event listener for the "transcript" event
-socket.on("transcript", (transcript) => {
-  if (transcript) {
-    // Add the new transcript line to the storage
-    addTranscriptLine(transcript);
+// Flag to indicate if transcription has started
+let transcriptionStarted = false;
 
-    // Get the updated transcript lines from the transcript storage
-    const transcriptLines = getTranscriptLines();
-
-    // Add the transcript lines to the .captions element
-    captions.innerHTML = transcriptLines.map(line => `<div>${line}</div>`).join('');
-
-    // Add the new transcript line to the .text element
-    text.innerHTML = `<span>${transcript}</span>`;
-
-    // Scroll to the bottom of the div
-    captions.scrollTop = captions.scrollHeight;
-  } else {
-    // If the transcript is empty, display the placeholder text
-    text.innerHTML = "Subby - Peek into conversation";
+// Function to update the UI with the new transcript
+function updateCaptions(newTranscript) {
+  // If transcription has not started, clear the placeholder text
+  if (!transcriptionStarted) {
+    text.innerHTML = "";
+    transcriptionStarted = true;
   }
-});
+
+  // Append the new transcript to the previous text
+  text.innerHTML += `<span>${newTranscript}</span>`;
+
+  // Scroll to the bottom of the captions element
+  captions.scrollTop = captions.scrollHeight;
+}
+
+// Register the updateCaptions function as a listener for new transcript lines
+transcriptStorage.onNewTranscript(updateCaptions);
