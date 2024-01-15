@@ -1,4 +1,3 @@
-// captions.js
 import transcriptStorage from './transcriptstorage.js';
 
 const captions = document.getElementById("captions");

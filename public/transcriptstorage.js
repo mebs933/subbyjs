@@ -1,4 +1,3 @@
-// transcriptstorage.js
 class TranscriptStorage {
   constructor() {
     this.transcripts = [];
@@ -7,7 +6,6 @@ class TranscriptStorage {
 
   addTranscript(transcript) {
     this.transcripts.push(transcript);
-    // Notify all listeners about the new transcript
     this.listeners.forEach(listener => listener(transcript));
   }
 
@@ -15,9 +13,8 @@ class TranscriptStorage {
     this.listeners.push(listener);
   }
 
-  // Add more methods as needed, such as for summary generation
+  // Later add more functions here
 }
 
-// Export a single instance
 const transcriptStorage = new TranscriptStorage();
 export default transcriptStorage;
