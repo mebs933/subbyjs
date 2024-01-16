@@ -1,5 +1,5 @@
 // Import the necessary libraries
-import io from 'socket.io-client';
+/* global io */
 import TranscriptStorage from './transcriptstorage.js';
 
 async function getMicrophone() {
