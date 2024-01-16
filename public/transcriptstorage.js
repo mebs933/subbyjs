@@ -13,8 +13,11 @@ class TranscriptStorage {
     this.listeners.push(listener);
   }
 
-  // Later add more functions here
+  // Additional functions can be added here if necessary
 }
 
+// Create an instance of TranscriptStorage
 const transcriptStorage = new TranscriptStorage();
+
+// Export the instance for use in other modules
 export default transcriptStorage;

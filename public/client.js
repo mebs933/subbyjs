@@ -1,6 +1,6 @@
-// Import de benodigde bibliotheken
+// Import the necessary libraries
 import io from 'socket.io-client';
-import TranscriptStorage from './transcriptstorage.js'; // Assuming you have this module to handle storage
+import TranscriptStorage from './transcriptstorage.js';
 
 async function getMicrophone() {
   const userMedia = await navigator.mediaDevices.getUserMedia({
@@ -15,12 +15,12 @@ async function openMicrophone(microphone, socket) {
 
   microphone.onstart = () => {
     console.log("client: microphone opened");
-    document.body.classList.add("recording");
+    document.getElementById("record").classList.add("recording");
   };
 
   microphone.onstop = () => {
     console.log("client: microphone closed");
-    document.body.classList.remove("recording");
+    document.getElementById("record").classList.remove("recording");
   };
 
   microphone.ondataavailable = (e) => {
@@ -60,9 +60,7 @@ window.addEventListener("load", () => {
   });
 
   socket.on("transcript", (transcript) => {
-    if (transcript !== "") {
-      // Here we update the transcript storage instead of directly manipulating the UI
-      TranscriptStorage.addTranscript(transcript);
-    }
+    // Instead of updating the DOM, we're calling a method from transcriptstorage.js
+    TranscriptStorage.addTranscript(transcript);
   });
 });
