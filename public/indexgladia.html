@@ -1,40 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Live Audio Transcription with Gladia</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.2/RecordRTC.js"></script>
-  <link rel="stylesheet" href="style.css" />
-</head>
+import transcriptStorageGladia from './transcriptstoragegladia.js';
 
-<body>
-  <div class="container">
-    <div class="captions" id="captionsgladia">
-      <div class="card-body" id="textgladia">Live Audio Transcription with Gladia</div>
-    </div>
-    <div class="box">
-      <div class="object" id="record">
-        <div class="outline"></div>
-        <div class="outline" id="delayed"></div>
-        <div class="button"></div>
-        <div class="button" id="circlein">
-          <img src="/images/soundwave.svg" class="soundwave-icon" alt="Soundwave Icon"/>
-        </div>
-      </div>
-    </div>
-  </div>
+const socket = new WebSocket("wss://api.gladia.io/audio/text/audio-transcription");
 
-  <div class="slider-container">
-    <input type="range" min="1" max="100" value="50" class="slider" id="fontSlidergladia">
-  </div>
+let isRecording = false;
 
-  <script type="module" src="clientgladia.js"></script>
-  <script type="module" src="transcriptstoragegladia.js"></script>
-  <script type="module" src="captionsgladia.js"></script>
-  <script type="module" src="fontsizeslidergladia.js"></script>
-  <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+const recordObject = document.getElementById("record");
 
-</body>
-</html>
+recordObject.addEventListener("click", () => {
+  if (!isRecording) {
+    isRecording = true;
+
+    recordObject.classList.add("recording");
+
+    const configuration = {
+      x_gladia_key: "e5b77157-3854-453c-a594-bdf853e2effd",
+      encoding: "MP3",
+      sample_rate: 16000,
+      language_behaviour: "manual",
+      language: "nl",
+      model_type: "accurate",
+      frames_format: "base64",
+    };
+
+    socket.send(JSON.stringify(configuration));
+
+    navigator.mediaDevices.getUserMedia({ audio: true })
+      .then((stream) => {
+        const mediaRecorder = new MediaRecorder(stream, {
+          mimeType: "audio/mpeg",
+        });
+
+        mediaRecorder.ondataavailable = (event) => {
+          const reader = new FileReader();
+
+          reader.onload = () => {
+            const base64Audio = reader.result.replace("data:audio/mpeg;base64,", "");
+            const message = { frames: base64Audio };
+            socket.send(JSON.stringify(message));
+          };
+
+          reader.readAsDataURL(event.data);
+        };
+
+        mediaRecorder.start();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } else {
+    isRecording = false;
+
+    recordObject.classList.remove("recording");
+
+    if (socket.readyState === WebSocket.OPEN) {
+      socket.close();
+    }
+  }
+});
+
+socket.onopen = () => {
+  console.log("WebSocket connection established");
+};
+
+socket.onclose = () => {
+  console.log("WebSocket connection closed");
+};
+
+socket.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+
+  if (data.event === "transcript") {
+    transcriptStorageGladia.addTranscript(data.transcript);
+  } else if (data.event === "error") {
+    console.error(data.error);
+  }
+};
