@@ -1,3 +1,5 @@
+// /workspaces/subbyjs/public/client.js
+
 // Import the necessary libraries
 /* global io */
 import TranscriptStorage from './transcriptstorage.js';

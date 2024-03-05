@@ -1,3 +1,5 @@
+//workspaces/subbyjs/public/transcriptstorage.js
+
 class TranscriptStorage {
   constructor() {
     this.transcripts = [];
