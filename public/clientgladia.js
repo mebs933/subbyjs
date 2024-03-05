@@ -14,7 +14,7 @@ recordObject.addEventListener("click", () => {
 
     const configuration = {
       x_gladia_key: "e5b77157-3854-453c-a594-bdf853e2effd",
-      encoding: "OGG/VORBIS",
+      encoding: "MP3",
       sample_rate: 16000,
       language_behaviour: "manual",
       language: "nl",
@@ -27,14 +27,14 @@ recordObject.addEventListener("click", () => {
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then((stream) => {
         const mediaRecorder = new MediaRecorder(stream, {
-          mimeType: "audio/ogg; codecs=vorbis",
+          mimeType: "audio/mpeg",
         });
 
         mediaRecorder.ondataavailable = (event) => {
           const reader = new FileReader();
 
           reader.onload = () => {
-            const base64Audio = reader.result.replace("data:audio/ogg; codecs=vorbis;base64,", "");
+            const base64Audio = reader.result.replace("data:audio/mpeg;base64,", "");
             const message = { frames: base64Audio };
             socket.send(JSON.stringify(message));
           };
